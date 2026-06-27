@@ -139,8 +139,15 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Memory\driver.h" />
+    <ClInclude Include="Memory\LoadDriver.h" />
+    <ClInclude Include="offsets.hpp" />
     <ClInclude Include="settings.hpp" />
     <ClInclude Include="structs.hpp" />
+    <ClInclude Include="utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
