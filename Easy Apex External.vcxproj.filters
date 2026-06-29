@@ -14,4 +14,116 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entity\entity.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="structs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx9.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx11.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_win32.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_tables.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\imgui\imgui_widgets.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\OS-ImGui.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity\entity.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\structs.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory\driver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory\LoadDriver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="offsets.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="settings.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="structs.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imconfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx9.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx11.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_win32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imgui_internal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imstb_rectpack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imstb_textedit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\imgui\imstb_truetype.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\stb\stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_Base.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_Exception.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_External.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

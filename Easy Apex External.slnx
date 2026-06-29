@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Easy Apex External.vcxproj" />
+  <Project Path="Easy Apex External.vcxproj" Id="b43f3c6e-f41a-4ecd-8844-fc06ea4a2c30" />
 </Solution>

@@ -144,12 +144,38 @@
     <ClInclude Include="Memory\driver.h" />
     <ClInclude Include="Memory\LoadDriver.h" />
     <ClInclude Include="offsets.hpp" />
+    <ClInclude Include="OS-ImGui\imgui\imconfig.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx11.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_dx9.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="OS-ImGui\imgui\imgui_internal.h" />
+    <ClInclude Include="OS-ImGui\imgui\imstb_rectpack.h" />
+    <ClInclude Include="OS-ImGui\imgui\imstb_textedit.h" />
+    <ClInclude Include="OS-ImGui\imgui\imstb_truetype.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_Base.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_Exception.hpp" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_External.h" />
+    <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h" />
+    <ClInclude Include="OS-ImGui\stb\stb_image.h" />
     <ClInclude Include="settings.hpp" />
     <ClInclude Include="structs.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity\entity.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_demo.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_draw.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_tables.cpp" />
+    <ClCompile Include="OS-ImGui\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="OS-ImGui\OS-ImGui.cpp" />
+    <ClCompile Include="OS-ImGui\OS-ImGui_Base.cpp" />
+    <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp" />
     <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
