@@ -142,6 +142,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cheat.hpp" />
     <ClInclude Include="Entity\entity.hpp" />
     <ClInclude Include="Entity\structs.hpp" />
     <ClInclude Include="Memory\driver.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cheat.cpp" />
     <ClCompile Include="Entity\entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OS-ImGui\imgui\imgui.cpp" />
