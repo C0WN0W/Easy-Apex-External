@@ -54,6 +54,12 @@
     <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Overlay\draw.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity\entity.hpp">
@@ -123,6 +129,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="OS-ImGui\OS-ImGui_Struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Overlay\draw.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
