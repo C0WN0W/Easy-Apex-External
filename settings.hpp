@@ -1,5 +1,6 @@
-#pragma once
+﻿#pragma once
 #include "structs.hpp"
+#include "OS-ImGui/imgui/imgui.h"
 #include <atomic>
 
 namespace Global
