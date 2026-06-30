@@ -166,6 +166,7 @@
     <ClInclude Include="Overlay\draw.hpp" />
     <ClInclude Include="Overlay\menu.hpp" />
     <ClInclude Include="settings.hpp" />
+    <ClInclude Include="Hacks\skeleton.hpp" />
     <ClInclude Include="structs.hpp" />
     <ClInclude Include="utils.hpp" />
   </ItemGroup>
@@ -186,6 +187,7 @@
     <ClCompile Include="OS-ImGui\OS-ImGui_External.cpp" />
     <ClCompile Include="Overlay\draw.cpp" />
     <ClCompile Include="Overlay\menu.cpp" />
+    <ClCompile Include="Hacks\skeleton.cpp" />
     <ClCompile Include="structs.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
