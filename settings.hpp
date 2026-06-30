@@ -97,13 +97,13 @@ namespace cheatConfig
 	inline int ThirdPersonKey = VK_MBUTTON;
 
 
-	inline float BoxCol_vis[4] = { 1.f, 1.f, 1.f, 1.f };
-	inline float BoxCol_unvis[4] = { 0.f, 1.f, 0.f, 1.f };
-	inline float LineCol[4] = { 1.f, 1.f, 1.f, 1.f };
-	inline float BoneCol_Knock[4] = { 1.f, 0.5f, 0.f, 1.f };
-	inline float BoneCol[4] = { 1.f, 1.f, 1.f, 1.f };
-	inline float BoneCol_Unvis[4] = { 0.f, 1.f, 0.f, 1.f };
-	inline float AimFOVCol[4] = { 1.f, 1.f, 1.f, 1.f };
+	inline ImColor BoxCol_vis = ImColor(255, 255, 255, 255);
+	inline ImColor BoxCol_unvis = ImColor(0, 255, 0, 255);
+	inline ImColor LineCol = ImColor(255, 255, 255, 255);
+	inline ImColor BoneCol_Knock = ImColor(255, 125, 0, 255);
+	inline ImColor BoneCol = ImColor(255, 255, 255, 255);
+	inline ImColor BoneCol_Unvis = ImColor(0, 255, 0, 255);
+	inline ImColor AimFOVCol = ImColor(255, 255, 255, 255);
 
 	inline int GlowStyleVisSelect = 11;
 	inline int GlowStyleUnvisSelect = 4;

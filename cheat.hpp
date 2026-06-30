@@ -32,4 +32,7 @@ namespace Cheat
 	void Run();
 	void WorkerThread();
 	void MatrixUpdater();
+
+	ImVec4 CalcRect(Player entity, Matrix m);
+	bool IsBoxValid(ImVec4 box);
 }
