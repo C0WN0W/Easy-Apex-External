@@ -1,21 +1,27 @@
-#define IMGUI_DEFINE_MATH_OPERATORS
+﻿#define IMGUI_DEFINE_MATH_OPERATORS
 #include "cheat.hpp"
 #include "Hacks/skeleton.hpp"
 #include "Overlay/menu.hpp"
 
-std::mutex Cheat::taskMutex;
-std::condition_variable Cheat::taskCV;
 std::atomic<bool> Cheat::running{ true };
 
-namespace GlobalBuffer {
-	std::vector<Player> poolA;
-	std::vector<Player> poolB;
+struct FrameData {
+	std::vector<Player> players;
+	Player localPlayer;
+};
 
-	std::atomic<std::vector<Player>*> frontBuffer{ &poolA };
+static FrameData poolA;
+static FrameData poolB;
 
-	std::atomic<std::vector<Player>*> backBuffer{ &poolB };
+static std::atomic<FrameData*> frontBuffer{ &poolA };
+static std::atomic<FrameData*> backBuffer{ &poolB };
 
-	Player localPlayerSnapshot;
+static Matrix g_viewPool[2];
+static std::atomic<Matrix*> g_viewPtr{ &g_viewPool[0] };
+
+Matrix Cheat::GetViewMatrix()
+{
+	return *g_viewPtr.load(std::memory_order_acquire);
 }
 
 void Cheat::MatrixUpdater()
@@ -23,10 +29,12 @@ void Cheat::MatrixUpdater()
 	uint64_t viewRender = drv::Read<uint64_t>(Global::GameBase + Offset::Misc::ViewRender);
 	uint64_t viewMatrixPtr = drv::Read<uint64_t>(viewRender + Offset::Misc::ViewMatrix);
 
-	while (running)
+	while (running.load(std::memory_order_acquire))
 	{
-		Global::ViewMatrix = drv::Read<Matrix>(viewMatrixPtr);
-		Global::MatrixReady = true;
+		Matrix* current = g_viewPtr.load(std::memory_order_relaxed);
+		Matrix* next = (current == &g_viewPool[0]) ? &g_viewPool[1] : &g_viewPool[0];
+		*next = drv::Read<Matrix>(viewMatrixPtr);
+		g_viewPtr.store(next, std::memory_order_release);
 
 		std::this_thread::yield();
 	}
@@ -34,12 +42,12 @@ void Cheat::MatrixUpdater()
 
 void Cheat::WorkerThread()
 {
-	while (running)
+	while (running.load(std::memory_order_acquire))
 	{
 		uintptr_t localPtr = GetLocalPlayerPtr();
 		if (!localPtr)
 		{
-			GlobalBuffer::frontBuffer.load()->clear();
+			backBuffer.load(std::memory_order_relaxed)->players.clear();
 			std::this_thread::sleep_for(std::chrono::milliseconds(100));
 			continue;
 		}
@@ -50,10 +58,10 @@ void Cheat::WorkerThread()
 		local.TeamID = GetTeamID(localPtr);
 		local.Zoomed = drv::Read<int>(localPtr + Offset::Player::Zooming);
 		local.CameraPos = drv::Read<Vector3>(localPtr + Offset::Player::CameraPos);
-		GlobalBuffer::localPlayerSnapshot = local;
 
-		std::vector<Player>* workingList = GlobalBuffer::backBuffer.load();
-		workingList->clear();
+		FrameData* working = backBuffer.load(std::memory_order_relaxed);
+		working->players.clear();
+		working->localPlayer = local;
 
 		std::string levelName = GetLevelName();
 		int loopSize = (levelName == "mp_rr_canyonlands_staging_mu1") ? 10000 : 64;
@@ -85,9 +93,11 @@ void Cheat::WorkerThread()
 			p.IsKnocked = GetKnocked(ent);
 			p.Velocity = drv::Read<Vector3>(ent + Offset::Player::Velocity);
 
-			workingList->push_back(p);
+			working->players.push_back(p);
 		}
-		GlobalBuffer::backBuffer.store(GlobalBuffer::frontBuffer.exchange(workingList));
+
+		FrameData* oldFront = frontBuffer.exchange(working, std::memory_order_acq_rel);
+		backBuffer.store(oldFront, std::memory_order_release);
 
 		std::this_thread::sleep_for(std::chrono::nanoseconds(1));
 	}
@@ -95,12 +105,13 @@ void Cheat::WorkerThread()
 
 void Cheat::Run()
 {
-	std::vector<Player>* renderList = GlobalBuffer::frontBuffer.load();
-	Player localPlayer = GlobalBuffer::localPlayerSnapshot;
+	FrameData* renderData = frontBuffer.load(std::memory_order_acquire);
+	Player localPlayer = renderData->localPlayer;
+	Matrix viewMatrix = GetViewMatrix();
 
-	for (const auto& plyer : *renderList)
+	for (const auto& plyer : renderData->players)
 	{
-		ImVec4 box = CalcRect(plyer, Global::ViewMatrix);
+		ImVec4 box = CalcRect(plyer, viewMatrix);
 		if (!IsBoxValid(box)) continue;
 
 		if (cheatConfig::BoxESP)
@@ -129,9 +140,8 @@ void Cheat::Run()
 
 		if (cheatConfig::BoneESP)
 		{
-			Skeleton::DrawSkeleton(plyer.Ptr, Global::ViewMatrix,
+			Skeleton::DrawSkeleton(plyer.Ptr, viewMatrix,
 				plyer.IsKnocked ? cheatConfig::BoneCol_Knock : (plyer.IsVisible ? cheatConfig::BoneCol : cheatConfig::BoneCol_Unvis));
-			// Skeleton::DebugDrawBones(plyer.Ptr, Global::ViewMatrix);
 		}
 	}
 

@@ -76,5 +76,4 @@ int main()
 	}
 
 	Cheat::running = false;
-	Cheat::taskCV.notify_all();
 }

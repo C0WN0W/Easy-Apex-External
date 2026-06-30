@@ -1,15 +1,12 @@
 ﻿#pragma once
 #include "structs.hpp"
 #include "OS-ImGui/imgui/imgui.h"
-#include <atomic>
 
 namespace Global
 {
 	inline uintptr_t GameBase = 0;
 	inline Vector2 ScreenSize = { 0,0 };
 	inline Vector2 SightCenter = { 0,0 };
-	inline Matrix ViewMatrix;
-	inline std::atomic<bool> MatrixReady{ false };
 
 	inline int GlowID = 0;
 	inline int current_fps = 0;
