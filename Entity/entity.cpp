@@ -1,5 +1,4 @@
-#pragma once
-#include "Entity.hpp"
+﻿#include "Entity.hpp"
 
 int GetWeaponIndex(uint64_t EntityAddr)
 {
@@ -12,11 +11,7 @@ int GetWeaponIndex(uint64_t EntityAddr)
 std::string GetLevelName()
 {
 	char tmpstr[64] = { 0 };
-	for (int i = 0; i < 64; i++)
-	{
-		tmpstr[i] = drv::Read<char>(Global::GameBase + Offset::Misc::LevelName + i);
-		if (tmpstr[i] == '\0') break;
-	}
+	drv::ReadRange(Global::GameBase + Offset::Misc::LevelName, tmpstr, sizeof(tmpstr));
 	return std::string(tmpstr);
 }
 
