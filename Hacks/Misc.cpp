@@ -73,3 +73,19 @@ void Misc::TapStrafe(uintptr_t localPlayer)
 {
 	return;
 }
+
+void Misc::ThirdPerson(uintptr_t localPlayer)
+{
+	if (!cheatConfig::ThirdPerson) return;
+
+	int inZoom = drv::Read<int>(localPlayer + Offset::Player::Zooming);
+
+	if (inZoom == 0 && cheatConfig::ThirdPersonSwitch)
+	{
+		drv::Write<int>(Global::GameBase + Offset::ThirdPerson::thirdperson_override + 0x5C, 10);
+	}
+	else
+	{
+		drv::Write<int>(Global::GameBase + Offset::ThirdPerson::thirdperson_override + 0X5C, 0);
+	}
+}

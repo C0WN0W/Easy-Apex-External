@@ -44,9 +44,12 @@ namespace Misc
         WEAPON_HEAL = 242,
     };
 
+    void ThirdPerson(uintptr_t localPlayer);
+
     void BunnyHop(uintptr_t localPlayer);
     void AutoGrapple(uintptr_t localPlayer);
     void SuperGlide(uintptr_t localPlayer);
     void SuperGlideJump(uintptr_t localPlayer);
     void TapStrafe(uintptr_t localPlayer);
+
 }
