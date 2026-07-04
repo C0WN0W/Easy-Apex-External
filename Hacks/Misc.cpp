@@ -89,3 +89,34 @@ void Misc::ThirdPerson(uintptr_t localPlayer)
 		drv::Write<int>(Global::GameBase + Offset::ThirdPerson::thirdperson_override + 0X5C, 0);
 	}
 }
+
+void Misc::RapidFire(uintptr_t localPlayer)
+{
+	if (!cheatConfig::RapidFire) return;
+
+	auto isSemiAuto = drv::Read<bool>(Game::WeaponEntity + Offset::Weapon::IsSemiAuto);
+	auto ammoInClip = drv::Read<uint64_t>(Game::WeaponEntity + Offset::Weapon::AmmoInClip);
+	auto readyTime = drv::Read<float>(Game::WeaponEntity + Offset::Weapon::NextReadyTime);
+
+	kbutton_t Button = drv::Read<kbutton_t>(Global::GameBase + Offset::Buttons::Attack);
+
+	if (isSemiAuto && ammoInClip > 0 && readyTime == 0 && !GetKnocked(localPlayer))
+	{
+		drv::Write<int>(Global::GameBase + Offset::Buttons::Attack + 0x8, 5);
+		Sleep(5);
+		drv::Write<int>(Global::GameBase + Offset::Buttons::Attack + 0x8, 4);
+	}
+}
+
+void Misc::AutoReload(uintptr_t localPlayer)
+{
+	if (!cheatConfig::AutoReload) return;
+
+	auto ammoInClip = drv::Read<uint64_t>(Game::WeaponEntity + Offset::Weapon::AmmoInClip);
+
+	if (ammoInClip <= cheatConfig::ReloadAtBullets)
+	{
+		drv::Write<int>(Global::GameBase + Offset::Buttons::Reload + 0x8, 6);
+	}
+}
+

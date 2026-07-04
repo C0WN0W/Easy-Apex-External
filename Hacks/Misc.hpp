@@ -46,6 +46,9 @@ namespace Misc
 
     void ThirdPerson(uintptr_t localPlayer);
 
+    void RapidFire(uintptr_t localPlayer);
+    void AutoReload(uintptr_t localPlayer);
+
     void BunnyHop(uintptr_t localPlayer);
     void AutoGrapple(uintptr_t localPlayer);
     void SuperGlide(uintptr_t localPlayer);
