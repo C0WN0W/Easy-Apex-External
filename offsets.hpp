@@ -2,7 +2,7 @@
 #include "structs.hpp"
 #include "Memory/driver.h"
 
-using off = const unsigned long long;
+using off = unsigned long long;
 
 namespace Offset
 {
