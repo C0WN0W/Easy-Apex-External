@@ -13,6 +13,13 @@ void triggerbot::run(uint64_t localPtr, uint64_t EntPtr)
         if (!IsAimed)
             return;
 
+		float distance = GetDistance(GetPosition(localPtr), GetPosition(EntPtr));
+		if (distance > cheatConfig::TriggerbotDistance)
+			return;
+
+        if (cheatConfig::TriggerbotDelay > 0)
+            std::this_thread::sleep_for(std::chrono::milliseconds(cheatConfig::TriggerbotDelay));
+
         drv::Write<int>(Global::GameBase + Offset::Buttons::Attack + 0x8, 5);
         Sleep(1);
         drv::Write<int>(Global::GameBase + Offset::Buttons::Attack + 0x8, 4);
