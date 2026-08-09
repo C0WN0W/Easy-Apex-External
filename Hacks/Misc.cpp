@@ -1,5 +1,27 @@
 #include "Misc.hpp"
 
+void Misc::MapRadar(uintptr_t localPlayer)
+{
+	if (!cheatConfig::MapRadar) return;
+
+	if (IsKeyDown(cheatConfig::MapRadarKey))
+	{
+		int SelfTeam = GetTeamID(localPlayer);
+
+		//open
+		for (int i = 0; i <= 80000; i++)
+		{
+			drv::Write<int>(localPlayer + Offset::Player::TeamNum, 1);
+		}
+		Sleep(100);
+		//end
+		for (int i = 0; i <= 80000; i++)
+		{
+			drv::Write<int>(localPlayer + Offset::Player::TeamNum, SelfTeam);
+		}
+	}
+}
+
 void Misc::BunnyHop(uintptr_t localPlayer)
 {
 	if (!cheatConfig::BunnyHop) return;

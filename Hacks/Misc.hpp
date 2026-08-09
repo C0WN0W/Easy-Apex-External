@@ -46,6 +46,8 @@ namespace Misc
 
     void ThirdPerson(uintptr_t localPlayer);
 
+    void MapRadar(uintptr_t localPlayer);
+
     void RapidFire(uintptr_t localPlayer);
     void AutoReload(uintptr_t localPlayer);
 
