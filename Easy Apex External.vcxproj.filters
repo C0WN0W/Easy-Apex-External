@@ -72,6 +72,9 @@
     <ClCompile Include="Hacks\misc.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Hacks\triggerbot.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity\entity.hpp">
@@ -156,6 +159,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Hacks\misc.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Hacks\triggerbot.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

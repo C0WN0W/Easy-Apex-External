@@ -146,6 +146,7 @@
     <ClInclude Include="Entity\entity.hpp" />
     <ClInclude Include="Entity\structs.hpp" />
     <ClInclude Include="Hacks\misc.hpp" />
+    <ClInclude Include="Hacks\triggerbot.hpp" />
     <ClInclude Include="Memory\driver.h" />
     <ClInclude Include="Memory\LoadDriver.h" />
     <ClInclude Include="offsets.hpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="cheat.cpp" />
     <ClCompile Include="Entity\entity.cpp" />
     <ClCompile Include="Hacks\misc.cpp" />
+    <ClCompile Include="Hacks\triggerbot.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OS-ImGui\imgui\imgui.cpp" />
     <ClCompile Include="OS-ImGui\imgui\imgui_demo.cpp" />
