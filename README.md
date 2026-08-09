@@ -3,6 +3,4 @@
 
 ---
 
-Under development, star this repo to follow the latest progress
-
-> This code does not currently include any drivers; you will need to replace it with your own driver to use it.
+### This is an incomplete project intended solely for learning and reference. Maintained lazily/on a casual basis. If you plan to deploy or use it, please refactor as needed.
